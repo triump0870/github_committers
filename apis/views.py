@@ -31,7 +31,6 @@ class ListCommittee(ListCreateAPIView):
 
     @method_decorator(cache_page(CACHE_TTL))
     def post(self, request):
-        print("request: ", request.data)
         serializer = OrganizationNameSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             organization = serializer.data["name"]
