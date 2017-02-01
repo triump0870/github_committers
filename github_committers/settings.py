@@ -125,7 +125,7 @@ LOGGING = {
     'disable_existing_loggers': True,
     'formatters': {
         'verbose': {
-            'format': "[%(asctime)s] [%(ip)s %(host)s] [%(project)s] %(levelname)s "
+            'format': "[%(asctime)s] [%(project)s] %(levelname)s "
                       "[%(name)s] [%(pathname)s:%(lineno)s-%(funcName)s()] %(message)s",
             'datefmt': "%d/%b/%Y %H:%M:%S"
         },
