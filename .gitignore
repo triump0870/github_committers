@@ -61,3 +61,4 @@ static
 media
 *.sql
 *.pem
+*.rdb
