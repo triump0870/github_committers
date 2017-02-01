@@ -1,5 +1,5 @@
 """
-WSGI config for github_toppers project.
+WSGI config for github_committers project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
