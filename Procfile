@@ -1,1 +1,1 @@
-web: gunicorn github_committers.wsgi
+web: gunicorn github_committers.wsgi --preload
