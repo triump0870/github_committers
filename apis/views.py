@@ -8,8 +8,10 @@ from requests.auth import HTTPBasicAuth
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.response import Response
+from django.utils.decorators import method_decorator
 
 from apis.serializers import OrganizationNameSerializer
+from django.views.decorators.cache import cache_page
 
 logger = getLogger("apis")
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
@@ -23,9 +25,11 @@ class ListCommittee(ListCreateAPIView):
     """
     serializer_class = OrganizationNameSerializer
 
+    @method_decorator(cache_page(CACHE_TTL))
     def get(self, request):
         return Response(status=status.HTTP_200_OK)
 
+    @method_decorator(cache_page(CACHE_TTL))
     def post(self, request):
         print("request: ", request.data)
         serializer = OrganizationNameSerializer(data=request.data)
