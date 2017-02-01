@@ -114,11 +114,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.8/howto/static-files/
-
-STATIC_URL = '/static/'
-
 # Log everything to the logs directory at the top
 logfile_path = env('LOG_FILE_PATH')
 if not exists(logfile_path):
@@ -184,7 +179,7 @@ CACHES = {
         "LOCATION": "{0}:{1}".format(redis_url.hostname, redis_url.port),
         "OPTIONS": {
             "PASSWORD": redis_url.password,
-             "DB": 0,
+            "DB": 0,
         }
     }
 }
@@ -192,4 +187,8 @@ CACHES = {
 # Cache time to live is 15 minutes.
 CACHE_TTL = 60 * 15
 
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/1.8/howto/static-files/
+
+STATIC_URL = '/static/'
 STATIC_ROOT = join(BASE_DIR, 'static')
