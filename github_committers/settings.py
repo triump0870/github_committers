@@ -12,10 +12,11 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: join(BASE_DIR, ...)
 import logging.config
-from os import makedirs
+from os import makedirs, environ
 from os.path import join, dirname, exists, abspath
 
 import environ
+import urlparse
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
 
@@ -176,13 +177,14 @@ USERNAME = env("USERNAME")
 PASSWORD = env("PASSWORD")
 
 # redis cache settings
+redis_url = urlparse.urlparse(environ.get('REDIS_URL'))
 CACHES = {
     "default": {
         "BACKEND": "redis_cache.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "LOCATION": "{0}:{1}".format(redis_url.hostname, redis_url.port),
         "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
-            "CONNECTION_POOL_KWARGS": {"max_connections": 100},
+            "PASSWORD": redis_url.password,
+             "DB": 0,
         }
     }
 }
