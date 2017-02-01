@@ -177,7 +177,7 @@ USERNAME = env("USERNAME")
 PASSWORD = env("PASSWORD")
 
 # redis cache settings
-redis_url = urlparse.urlparse(environ.get('REDIS_URL'))
+redis_url = urlparse.urlparse(env('REDISTOGO_URL'))
 CACHES = {
     "default": {
         "BACKEND": "redis_cache.cache.RedisCache",
