@@ -16,7 +16,7 @@ from os import makedirs, environ
 from os.path import join, dirname, exists, abspath
 
 import environ
-from urllib.parse import urlparse
+from urlparse import urlparse
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
 
