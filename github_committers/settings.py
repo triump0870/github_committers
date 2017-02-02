@@ -16,7 +16,7 @@ from os import makedirs, environ
 from os.path import join, dirname, exists, abspath
 
 import environ
-import urlparse
+from urllib.parse import urlparse
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
 
@@ -174,7 +174,7 @@ USERNAME = env("USERNAME")
 PASSWORD = env("PASSWORD")
 
 # redis cache settings
-redis_url = urlparse.urlparse(env('REDISTOGO_URL'))
+redis_url = urlparse(env('REDISTOGO_URL'))
 CACHES = {
     "default": {
         "BACKEND": "redis_cache.cache.RedisCache",
