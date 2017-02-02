@@ -62,3 +62,4 @@ media
 *.sql
 *.pem
 *.rdb
+htmlcov
