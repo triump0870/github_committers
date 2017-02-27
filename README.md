@@ -1,8 +1,12 @@
 ## Description
-Uses the Github APIs to get the top 3 committee for the top 5 repositories of a particular organization
+Uses the Github APIs to get the top 3 committer for the top 5 repositories of a particular organization
+
+## APIs:
+
+_POST http://committers.herokuapp.com/apis/lists/_
 
 ## Request
-    curl -H "Content-Type: application/json" -X POST http://localhost:8000/apis/list/ -d '{"name": "google"}'
+    curl -H "Content-Type: application/json" -X POST http://committers.herokuapp.com/apis/lists/ -d '{"name": "google"}'
     
 ## Response
     [
