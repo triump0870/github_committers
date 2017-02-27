@@ -14,7 +14,7 @@ logger = getLogger("apis")
 CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 
-class ListCommittee(ListCreateAPIView):
+class Committers(ListCreateAPIView):
     """
     Calls the Github APIs for a particular organization and presents the top 5
     repositories based on the forks_count and lists top 3 committees based on
